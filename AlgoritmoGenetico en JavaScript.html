@@ -12,10 +12,11 @@
 			var a = Math;
 			var b = 'Politécnico Colombiano Jaime Isaza Cadavid';
 			var randomLetter = function () {
+				//funte inicial
 				var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghjiklmnopqrstuvwxyz áéíóú';
 				return letters.charAt(a.floor((a.random()*letters.length)));
 			}
-
+			//Crea una poblacion  de 42 caracteres, ya que es la dimencion de la frase a buscar
 			var similarString = function (x, y) {
 				count = 0;
 				for (var i = 0; i < 42; i++) {
@@ -26,7 +27,7 @@
 				}
 				return count;
 			}
-			
+			//Evala todos los elementos de la poblacion obtiene con los mas precisos
 			var cycle = 20;
 			var first = true;
 			var found = false;
@@ -71,7 +72,7 @@
 									os = top1.substring(0, splitAt)+'</span><span style="color: #10009e">'+top2.substring(splitAt, 42);
 
 								os = os.substring(0, mutateAt-1)+'<span style="background-color: #FFFFB3">'+strings[i].charAt(mutateAt-1)+'</span>'+os.substring(mutateAt, os.length);
-//os = strings[i]+"-"+os;
+
 
 							} else {
 								// mutate first
@@ -80,7 +81,7 @@
 									os = os.substring(0, splitAt)+'</span><span style="color: #009E28">'+os.substring(splitAt, os.length);
 								else
 									os = os.substring(0, splitAt)+'</span><span style="color: #10009e">'+os.substring(splitAt, os.length);
-//os = strings[i]+"+"+os;
+
 							}
 							if (i < 10)
 								outputstrings[i] = '<span style="color: #10009e">'+os+'</span>';
@@ -131,7 +132,9 @@
 				document.getElementById('stats').innerHTML = total+" Iteraciones Realizadas Geneticamente.";
 			}
 			stop = setInterval(function () { go() }, 50);
+			//Imprime las iteraciones una vez finaliza la busqueda
 		</script>
+		
 		<pre style="margin: 40px; font-size: 4em; font-family: monospace; text-align: center" id="output">Politécnico Colombiano Jaime Isaza Cadavid</pre>
 		<div style="font-size: 2em; font-family: monospace; text-align: center" id="stats">2802 Iteraciones Realizadas Geneticamente </div>
 		<div id="all"><pre style="width: 45em; margin: 20px auto; text-align: center"><span style="color: #cbfc58">Politécnico Colombiano Jaime Isaza Cadavid</span> <span style="color: #009E28"> </span></pre><pre style="-moz-column-width: 10em;-webkit-column-width: 10em;-moz-column-gap: 1em;-webkit-column-gap: 1em; width: 45em; text-align: center; margin: 20px auto;"><span style="color: #10009e"></span><span style="color: #009E28"> <span style="background-color: #FFFFB3">A</span>ld!</span>
